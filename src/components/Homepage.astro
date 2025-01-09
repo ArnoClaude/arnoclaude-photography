@@ -1,0 +1,16 @@
+---
+import { Image } from "astro:assets"
+const imageFiles = await Astro.glob('../../public/images/homepage/*"');
+---
+
+<div class="columns-1 sm:columns-2 md:columns-3 space-y-0.5 sm:gap-2 sm:space-y-2">
+    {
+        imageFiles.map((img) => (
+                <Image
+                        src={img.default}
+                        alt="Photo"
+                        class="w-full"
+                />
+        ))
+    }
+</div>
