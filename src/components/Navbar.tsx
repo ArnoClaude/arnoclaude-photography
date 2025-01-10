@@ -25,8 +25,8 @@ export default function Navbar() {
     return (
         <header>
             {/* Desktop Navbar */}
-            <nav className="hidden md:flex flex-row justify-between items-center py-16">
-                <p className="text-3xl">Arno Claude</p>
+            <nav className="hidden md:flex flex-row justify-between items-center h-32">
+                <a href="/" className="text-3xl" >Arno Claude</a>
                 <ul className="flex flex-row space-x-8 text-xl">
                     {navItems.map((item) => (
                         <li key={item.label} className="hover:text-gray-500 cursor-pointer">
@@ -37,8 +37,8 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile Navbar */}
-            <nav className="flex md:hidden flex-row justify-between items-center p-4">
-                <p className="text-xl">Arno Claude</p>
+            <nav className="flex md:hidden flex-row justify-between items-center px-4 h-16">
+                <a href="/" className="text-xl">Arno Claude</a>
                 <button
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
