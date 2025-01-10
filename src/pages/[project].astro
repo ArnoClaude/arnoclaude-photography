@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+export function getStaticPaths() {
+    return [
+        {params: {project: 'jan'}},
+        {params: {project: 'jie'}},
+        {params: {project: 'lisa'}},
+    ];
+}
+
+const { project } = Astro.params;
+
+let imageFiles;
+
+switch (project) {
+    case "jan":
+        imageFiles = await Astro.glob('../../public/images/jan-hofgarten-2024/*');
+        break;
+    case "jie":
+        imageFiles = await Astro.glob('../../public/images/jie-france-spain-2024/*');
+        break;
+    case "lisa":
+        imageFiles = await Astro.glob('../../public/images/lisa-olypark-2024/*');
+        break;
+    default:
+}
+---
+
+<div class="columns-1 sm:columns-2 md:columns-3 space-y-0.5 sm:gap-2 sm:space-y-2">
+    {
+        imageFiles.map((img) => (
+                <Image
+                        src={img.default}
+                        alt="Photo"
+                        class="w-full"
+                />
+        ))
+    }
+</div>
