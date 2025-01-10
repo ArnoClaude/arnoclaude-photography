@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
 
+// Add new project:
 export function getStaticPaths() {
     return [
         {params: {project: 'jan'}},
@@ -13,6 +15,7 @@ const { project } = Astro.params;
 
 let imageFiles;
 
+// Add new project:
 switch (project) {
     case "jan":
         imageFiles = await Astro.glob('../../public/images/jan-hofgarten-2024/*');
@@ -27,6 +30,7 @@ switch (project) {
 }
 ---
 
+<Layout>
 <div class="columns-1 sm:columns-2 md:columns-3 space-y-0.5 sm:gap-2 sm:space-y-2">
     {
         imageFiles.map((img) => (
@@ -38,3 +42,4 @@ switch (project) {
         ))
     }
 </div>
+</Layout>
