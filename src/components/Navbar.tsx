@@ -38,14 +38,14 @@ export default function Navbar() {
 
             {/* Mobile Navbar */}
             <nav className="flex md:hidden flex-row justify-between items-center p-4">
-                <p className="font-serif">Arno Claude (Mobile)</p>
+                <p className="text-xl">Arno Claude</p>
                 <button
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                     aria-expanded={menuOpen}
                     className="hover:text-gray-500"
                 >
-                    {menuOpen ? <X /> : <Menu />}
+                    {menuOpen ? <X/> : <Menu/>}
                 </button>
             </nav>
 
